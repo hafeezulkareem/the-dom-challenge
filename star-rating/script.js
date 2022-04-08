@@ -5,52 +5,43 @@
  * @param callback Returns selected star count to callback
  */
 function Star(el, count, callback) {
-   let rating = 0;
-
+   let activeStarsCount = -1;
    const starsContainer = document.querySelector(el);
+   const stars = document.createDocumentFragment();
    for (let i = 0; i < count; i++) {
       const star = document.createElement("i");
       star.classList = "fa fa-star-o";
-      star.addEventListener("mouseover", () => onHoverStar(i));
-      star.addEventListener("click", () => {
-         rating = i + 1;
-         callback(rating);
-      });
-      starsContainer.appendChild(star);
+      star.dataset.rating = i + 1;
+      stars.appendChild(star);
+      star.addEventListener("mouseover", onMouseover);
+      star.addEventListener("click", onClick);
    }
-   starsContainer.addEventListener("mouseleave", () => clearRating(rating));
-}
+   starsContainer.appendChild(stars);
+   starsContainer.addEventListener("mouseleave", onMouseleave);
 
-function onHoverStar(index) {
-   const stars = document.querySelectorAll(".fa");
-   stars.forEach((star) => {
-      if (star.classList.contains("fa-star")) {
-         star.classList.remove("fa-star");
+   function fillActiveStars(rating) {
+      for (let i = 0; i < count; i++) {
+         if (i < rating) {
+            starsContainer.children[i].classList.add("fa-star");
+         } else {
+            starsContainer.children[i].classList.remove("fa-star");
+         }
       }
-      star.classList.add("fa-star-o");
-   });
-
-   for (let i = 0; i <= index; i++) {
-      stars[i].classList.remove("fa-star-o");
-      stars[i].classList.add("fa-star");
    }
-}
 
-function clearRating(rating) {
-   const stars = document.querySelectorAll(".fa");
-   let i = 0;
-   while (i < rating) {
-      if (stars[i].classList.contains("fa-star-o")) {
-         stars[i].classList.remove("fa-star-o");
-      }
-      stars[i].classList.add("fa-star");
-      i += 1;
+   function onMouseover(event) {
+      const rating = event.target.dataset.rating;
+      if (!rating) return;
+      fillActiveStars(rating);
    }
-   while (i < stars.length) {
-      if (stars[i].classList.contains("fa-star")) {
-         stars[i].classList.remove("fa-star");
-      }
-      stars[i].classList.add("fa-star-o");
-      i += 1;
+
+   function onClick(event) {
+      activeStarsCount = event.target.dataset.rating;
+      fillActiveStars(activeStarsCount);
+      callback(activeStarsCount);
+   }
+
+   function onMouseleave() {
+      fillActiveStars(activeStarsCount);
    }
 }
