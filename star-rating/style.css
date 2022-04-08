@@ -1,3 +1,18 @@
+#star > i:first-child {
+    margin-left: 0px;
+}
+
+#display-star {
+    font-size: 64px;
+}
+
+.fa-star-o, .fa-star {
+    font-size: 64px;
+    margin-left: 12px;
+    cursor: pointer;
+}
+
+
 .fa-star-o:before {
     content: "\f006";
     color: #5f6368;
