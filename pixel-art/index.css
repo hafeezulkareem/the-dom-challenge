@@ -1,0 +1,24 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+#grid {
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.row {
+   display: flex;
+   align-items: center;
+}
+
+.cell {
+   width: 48px;
+   height: 48px;
+   border: 1px solid #cccccc;
+}
