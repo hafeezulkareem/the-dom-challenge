@@ -1,0 +1,43 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+.container {
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   padding: 64px 0px;
+}
+
+.user-score {
+   font-family: sans-serif;
+   font-weight: 600;
+   font-size: 18px;
+}
+
+.score {
+   font-weight: 400;
+}
+
+.board {
+   height: calc(100vh - 64px);
+   border: 4px solid black;
+   border-radius: 4px;
+   padding: 1px;
+   margin-top: 8px;
+}
+
+.row {
+   display: flex;
+   align-items: center;
+}
+
+.cell {
+   cursor: pointer;
+   margin: 2px;
+}
+
