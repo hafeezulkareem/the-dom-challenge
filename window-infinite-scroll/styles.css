@@ -1,0 +1,14 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background-color: antiquewhite;
+}
+
+.line {
+  font-size: 124px;
+  font-weight: 500;
+}
