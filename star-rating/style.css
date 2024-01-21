@@ -1,24 +1,48 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
 #star > i:first-child {
-    margin-left: 0px;
+  margin-left: 0px;
 }
 
 #display-star {
-    font-size: 64px;
+  font-size: 64px;
 }
 
-.fa-star-o, .fa-star {
-    font-size: 64px;
-    margin-left: 12px;
-    cursor: pointer;
+.fa-star-o,
+.fa-star {
+  font-size: 64px;
+  margin-left: 12px;
+  cursor: pointer;
 }
-
 
 .fa-star-o:before {
-    content: "\f006";
-    color: #5f6368;
+  content: "\f006";
+  color: #5f6368;
 }
 
 .fa-star:before {
-    content: "\f005";
-    color: #d56e0c;
+  content: "\f005";
+  color: #d56e0c;
+}
+
+.star-wrapper {
+  width: 64px;
+  height: 64px;
+  background-color: crimson;
+  position: relative;
+  margin-left: 100px;
+}
+
+.star-wrapper div {
+  width: 0%;
+  height: 100%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  background-color: seagreen;
+  pointer-events: none;
 }
